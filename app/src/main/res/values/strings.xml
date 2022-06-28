@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">School Planner</string>
+
+    <string-array name="course_status">
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Dropped</item>
+        <item>Plan to Take</item>
+    </string-array>
+</resources>
