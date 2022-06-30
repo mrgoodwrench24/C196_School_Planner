@@ -2,12 +2,15 @@ package com.example.schoolplanner.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.schoolplanner.Database.Repository;
 import com.example.schoolplanner.Entity.Course;
@@ -24,6 +27,7 @@ public class CourseDetails extends AppCompatActivity {
     private TextView ciName;
     private TextView ciPhone;
     private TextView ciEmail;
+    private EditText saveNote;
     private int courseID;
     private String name;
     private String start;
@@ -32,6 +36,7 @@ public class CourseDetails extends AppCompatActivity {
     private String cMentorName;
     private String cMentorPhone;
     private String cMentorEmail;
+    private String note;
     private Repository repository;
     Course workingCourse;
 
@@ -42,8 +47,10 @@ public class CourseDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
-        repository = new Repository(getApplication());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        repository = new Repository(getApplication());
         courseName = findViewById(R.id.textViewCDName);
         startDate = findViewById(R.id.textViewCDStartDate);
         endDate = findViewById(R.id.texViewCDEndDate);
@@ -51,11 +58,8 @@ public class CourseDetails extends AppCompatActivity {
         ciName = findViewById(R.id.editTextCDInstructorName);
         ciPhone = findViewById(R.id.editTextCDInstructorPhone);
         ciEmail = findViewById(R.id.editTextCDInstructorEmail);
-        if(getIntent().hasExtra("id")){
-            courseID = getIntent().getIntExtra("id" , -1);
-        }
-        else{
-        }
+        saveNote = findViewById(R.id.editTextNote);
+        courseID = getIntent().getIntExtra("id" , -1);
         workingCourse = findCourse(courseID);
         name = workingCourse.getTitle();
         start = workingCourse.getStartDate();
@@ -64,6 +68,7 @@ public class CourseDetails extends AppCompatActivity {
         cMentorName = workingCourse.getMentorName();
         cMentorPhone = workingCourse.getMentorPhone();
         cMentorEmail = workingCourse.getMentorEmail();
+        note = workingCourse.getNote();
         courseName.setText(name);
         startDate.setText(start);
         endDate.setText(end);
@@ -71,10 +76,8 @@ public class CourseDetails extends AppCompatActivity {
         ciName.setText(cMentorName);
         ciPhone.setText(cMentorPhone);
         ciEmail.setText(cMentorEmail);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        saveNote.setText(note);
 
-        ;
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -93,25 +96,14 @@ public class CourseDetails extends AppCompatActivity {
                 Intent intent = new Intent(this, TermDetails.class);
                 intent.putExtra("termID", termID);
                 startActivity(intent);
+            case R.id.editCourse:
+                Intent edit = new Intent(this, CourseUpdate.class);
+                if(!name.isEmpty()){
+                    edit.putExtra("id", courseID);
+                }
+                startActivity(edit);
         }
         return super.onOptionsItemSelected(item);
-
-    }
-
-    public void clickCourseUpdate(View view) {
-        Intent intent = new Intent(this, CourseUpdate.class);
-        if(!name.isEmpty()){
-            intent.putExtra("id", courseID);
-            intent.putExtra("name", name);
-            intent.putExtra("start", start);
-            intent.putExtra("end", end);
-            intent.putExtra("status", cStatus);
-            intent.putExtra("CIName", cMentorName);
-            intent.putExtra("CIphone", cMentorPhone);
-            intent.putExtra("CIemail", cMentorEmail);
-        }
-        startActivity(intent);
-
 
     }
 
@@ -125,5 +117,16 @@ public class CourseDetails extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    public void onActionSaveNote(View view) {
+        String newNote = saveNote.getText().toString();
+        workingCourse.setNote(newNote);
+        repository.update(workingCourse);
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "Note Saved", Toast.LENGTH_LONG);
+        toast.show();
+
+
     }
 }

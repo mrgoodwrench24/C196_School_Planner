@@ -2,6 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/editCourse"
+        android:title="Edit Course" />
+    <item
 
         android:id="@+id/deleteCourse"
         android:actionLayout="@layout/activity_course_details"

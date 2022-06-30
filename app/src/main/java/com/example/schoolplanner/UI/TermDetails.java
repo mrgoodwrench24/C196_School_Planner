@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -45,12 +47,6 @@ public class TermDetails extends AppCompatActivity {
         termEnd = findViewById(R.id.detailEndDate);
         termID = getIntent().getIntExtra("id", -1);
         workingTerm = workingTerm(termID);
-        /*
-        name = getIntent().getStringExtra("name");
-        start = getIntent().getStringExtra("start");
-        end = getIntent().getStringExtra("end");
-
-         */
         name = workingTerm.getTermName();
         start = workingTerm.getStartDate();
         end = workingTerm.getEndDate();
@@ -70,14 +66,7 @@ public class TermDetails extends AppCompatActivity {
     }
 
     public void clickUpdateTerm(View view){
-        Intent intent=new Intent(this, TermUpdate.class);
-        if (!name.isEmpty() && !start.isEmpty() && !end.isEmpty()) {
-            intent.putExtra("id",termID);
-            intent.putExtra("name", name);
-            intent.putExtra("start", start);
-            intent.putExtra("end", end);
-        }
-        startActivity(intent);
+
 
     }
 
@@ -99,6 +88,32 @@ public class TermDetails extends AppCompatActivity {
 
         return allCourses;
 
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_termdetails, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.deleteTerm:
+                repository.delete(workingTerm);
+                Intent delete = new Intent(this, TermsList.class);
+                startActivity(delete);
+            case R.id.editTerm:
+                Intent intent=new Intent(this, TermUpdate.class);
+                if (!name.isEmpty() && !start.isEmpty() && !end.isEmpty()) {
+                    intent.putExtra("id",termID);
+                }
+                startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 

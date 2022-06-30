@@ -10,21 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolPlanner">
         <activity
-            android:name=".TermUpdate"
-            android:exported="false" />
-        <activity
-            android:name=".TermsList"
-            android:exported="false" />
-        <activity
-            android:name=".TermDetails"
-            android:exported="false" />
-        <activity
-            android:name=".CourseUpdate"
-            android:exported="false" />
-        <activity
-            android:name=".CourseDetails"
-            android:exported="false" />
-        <activity
             android:name=".UI.CourseUpdate"
             android:exported="false"
             android:parentActivityName=".UI.CourseDetails" />

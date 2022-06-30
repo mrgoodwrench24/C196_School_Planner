@@ -9,13 +9,12 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.example.schoolplanner.Database.Repository;
 import com.example.schoolplanner.Entity.Term;
 import com.example.schoolplanner.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class TermUpdate extends AppCompatActivity {
@@ -30,6 +29,7 @@ public class TermUpdate extends AppCompatActivity {
     private String start;
     private  String end;
     private int termID;
+    Term workingTerm;
     DatePickerDialog.OnDateSetListener editTermStartDate;
     DatePickerDialog.OnDateSetListener editTermEndDate;
     private Repository repository;
@@ -46,15 +46,16 @@ public class TermUpdate extends AppCompatActivity {
         termStart = findViewById(R.id.editTermStartDate);
         termEnd = findViewById(R.id.editTermEndDate);
         termID = getIntent().getIntExtra("id", -1);
+        workingTerm = workingTerm(termID);
         if(termID == -1){
             title.setText("New Term");
         }
         else{
-            name = getIntent().getStringExtra("name");
+            name = workingTerm.getTermName();
             termName.setText(name);
-            start = getIntent().getStringExtra("start");
+            start = workingTerm.getStartDate();
             termStart.setText(start);
-            end = getIntent().getStringExtra("end");
+            end = workingTerm.getEndDate();
             termEnd.setText(end);
             title.setText("Term " + termID);
             termName.setText(name);
@@ -150,15 +151,19 @@ public class TermUpdate extends AppCompatActivity {
             repository.update(updateTerm);
             Intent intent = new Intent(this, TermDetails.class);
             intent.putExtra("id",termID);
-            intent.putExtra("name", termName.getText().toString());
-            intent.putExtra("start", termStart.getText().toString());
-            intent.putExtra("end", termEnd.getText().toString());
             repository = new Repository(getApplication());
             startActivity(intent);
         }
 
+    }
 
-
-
+    public Term workingTerm(int termID){
+        List<Term> allTerms = repository.getmAllTerms();
+        for(Term search : allTerms){
+            if(search.getTermID() == termID){
+                return search;
+            }
+        }
+        return null;
     }
 }
