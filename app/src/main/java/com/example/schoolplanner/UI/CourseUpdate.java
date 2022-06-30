@@ -2,11 +2,13 @@ package com.example.schoolplanner.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,8 +17,14 @@ import com.example.schoolplanner.Database.Repository;
 import com.example.schoolplanner.Entity.Course;
 import com.example.schoolplanner.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class CourseUpdate extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+    final Calendar myCalendarStart = Calendar.getInstance();
+    final Calendar myCalendarEnd = Calendar.getInstance();
     private String name;
     private String start;
     private String end;
@@ -33,6 +41,8 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
     private TextView cUpdatetitle;
     private int courseID;
     private static int termID;
+    DatePickerDialog.OnDateSetListener editCourseStartDate;
+    DatePickerDialog.OnDateSetListener editCourseEndDate;
 
     private Repository repository;
 
@@ -52,7 +62,7 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
         ciEmail = findViewById(R.id.editTextCDInstructorEmail);
         cUpdatetitle = findViewById(R.id.textViewCourseUpdate);
         termID = TermDetails.getTermIDCourse();
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.course_status, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.course_status, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -69,10 +79,9 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
 
         });
 
-        if(courseID == -1){
+        if (courseID == -1) {
             cUpdatetitle.setText("Add New Course");
-        }
-        else {
+        } else {
             cUpdatetitle.setText("Update Course");
             name = getIntent().getStringExtra("name");
             courseName.setText(name);
@@ -91,10 +100,76 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
 
         }
 
+        editCourseStartDate = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+                // TODO Auto-generated method stub
+
+                myCalendarStart.set(Calendar.YEAR, year);
+                myCalendarStart.set(Calendar.MONTH, month);
+                myCalendarStart.set(Calendar.DAY_OF_MONTH, day);
+                String myFormat = "MM/dd/yy";
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                startDate.setText(start);
+                updateStartLabel();
+
+            }
+
+        };
+
+        startDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(CourseUpdate.this, editCourseStartDate, myCalendarStart.get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH), myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        editCourseEndDate = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+                // TODO Auto-generated method stub
+
+                myCalendarStart.set(Calendar.YEAR, year);
+                myCalendarStart.set(Calendar.MONTH, month);
+                myCalendarStart.set(Calendar.DAY_OF_MONTH, day);
+                String myFormat = "MM/dd/yy";
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                endDate.setText(end);
+                updateEndLabel();
+
+            }
+
+        };
+
+        endDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(CourseUpdate.this, editCourseEndDate, myCalendarStart.get(Calendar.YEAR), myCalendarStart.get(Calendar.MONTH), myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
 
 
     }
 
+    private void updateEndLabel() {
+        String myFormat = "MM/dd/yy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        endDate.setText(sdf.format(myCalendarStart.getTime()));
+    }
+
+    private void updateStartLabel() {
+        String myFormat = "MM/dd/yy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        startDate.setText(sdf.format(myCalendarStart.getTime()));
+    }
 
 
     public void clickSaveCourse(View view) {

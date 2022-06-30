@@ -83,30 +83,6 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.CourseVi
             notifyDataSetChanged();
         }
 
-
-
-
-
-/*
-        try {
-            if (courses.size() > 0) {
-                for (Course course : courses) {
-                    if (course.getTermID() != termID) {
-                        courses.remove(course);
-                        notifyDataSetChanged();
-                    }
-                }
-            }
-            mCourse = courses;
-            notifyDataSetChanged();
-        } catch (ConcurrentModificationException e) {
-
-            mCourse = null;
-            notifyDataSetChanged();
-        }
-
- */
-
     }
 
     @Override
