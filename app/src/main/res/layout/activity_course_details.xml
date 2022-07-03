@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
-    android:onClick="onActionSaveNote"
     android:textColor="@color/black"
+    android:onClick="onActionSaveNote"
     android:visibility="visible"
     tools:context=".UI.CourseDetails">
 
