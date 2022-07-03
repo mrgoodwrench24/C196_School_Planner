@@ -102,6 +102,11 @@ public class CourseDetails extends AppCompatActivity {
                     edit.putExtra("id", courseID);
                 }
                 startActivity(edit);
+            case R.id.assessmentsMenuButton:
+                Intent assessments = new Intent(this, AssessmentList.class);
+                assessments.putExtra("courseID", courseID);
+                startActivity(assessments);
+
         }
         return super.onOptionsItemSelected(item);
 
