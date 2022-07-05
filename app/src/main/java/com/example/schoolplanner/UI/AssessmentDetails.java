@@ -24,7 +24,7 @@ public class AssessmentDetails extends AppCompatActivity {
     private String endDate;
     private String type;
     private String status;
-    private int courseID;
+    private int assessmentID;
     Assessment workingAssessment;
     private Repository repository;
 
@@ -43,7 +43,7 @@ public class AssessmentDetails extends AppCompatActivity {
         textEndDate = findViewById(R.id.editTextAUEnd);
         textType = findViewById(R.id.spinnerAUType);
         textStatus = findViewById(R.id.spinnerAUStatus);
-        courseID = getIntent().getIntExtra("id", -1);
+        assessmentID = getIntent().getIntExtra("id", -1);
         workingAssessment = findAssessment(assessmentID);
         assessmentName = workingAssessment.getAssessmentTitle();
         startDate = workingAssessment.getStartDate();

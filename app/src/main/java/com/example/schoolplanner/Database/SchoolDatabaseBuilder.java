@@ -12,7 +12,7 @@ import com.example.schoolplanner.Entity.Assessment;
 import com.example.schoolplanner.Entity.Course;
 import com.example.schoolplanner.Entity.Term;
 
-@Database(entities = {Assessment.class, Course.class, Term.class}, version = 1, exportSchema = false)
+@Database(entities = {Assessment.class, Course.class, Term.class}, version = 2, exportSchema = false)
 public abstract class SchoolDatabaseBuilder extends RoomDatabase {
     public abstract AssessmentDAO assessmentDAO();
     public abstract CourseDAO courseDAO();

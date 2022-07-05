@@ -3,6 +3,7 @@ package com.example.schoolplanner.UI;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -203,10 +204,27 @@ public class AssessmentUpdate extends AppCompatActivity {
         Assessment updateAssessment;
         if(assessmentID == -1){
             int newID = repository.getAllAssessments().get(repository.getAllAssessments().size()-1).getAssessmentID() + 1;
-            updateAssessment = new Assessment(newID, editName.getText(), editStart.getText(), editEnd.getText(), type, status, )
+            updateAssessment = new Assessment(newID, editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, 99);
+            repository.insert(updateAssessment);
+            Intent intent = new Intent(this, AssessmentList.class);
+            intent.putExtra("courseID", courseID);
+            repository = new Repository(getApplication());
+            startActivity(intent);
+        }
+        else{
+            updateAssessment = new Assessment(assessmentID,editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, workingAssessment.getCourseID());
+            repository.update(updateAssessment);
+            Intent intent = new Intent(this, AssessmentList.class);
+            intent.putExtra("courseID", updateAssessment.getCourseID());
+            repository = new Repository(getApplication());
+            startActivity(intent);
         }
     }
 
     public void clickCancelChanges(View view) {
+        Intent intent = new Intent(this, AssessmentList.class);
+        intent.putExtra("courseID", courseID);
+        repository = new Repository(getApplication());
+        startActivity(intent);
     }
 }
