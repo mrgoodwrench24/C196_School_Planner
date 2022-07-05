@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolPlanner">
         <activity
+            android:name=".AssessmentUpdate"
+            android:exported="false" />
+        <activity
+            android:name=".AssessmentDetails"
+            android:exported="false" />
+        <activity
             android:name=".AssessmentList"
             android:exported="false" />
         <activity

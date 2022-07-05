@@ -19,7 +19,9 @@
         <entry key="..\:/Users/papio/AndroidStudioProjects/SchoolPlanner/app/src/main/res/menu/menu_coursedetails.xml" value="0.403125" />
         <entry key="..\:/Users/papio/AndroidStudioProjects/SchoolPlanner/app/src/main/res/menu/menu_termlist.xml" value="0.403125" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.5475" />
+        <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_assessment_details.xml" value="0.264" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_assessment_list.xml" value="0.264" />
+        <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_assessment_update.xml" value="0.264" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_course_details.xml" value="0.264" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_course_details2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_course_update.xml" value="0.5541666666666667" />
@@ -27,8 +29,10 @@
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_term_details.xml" value="0.3691123188405797" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_term_update.xml" value="0.5541666666666667" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/activity_terms_list.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/assessments_view_row.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/course_view_row.xml" value="0.379981884057971" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/layout/term_view_row.xml" value="0.2259963768115942" />
+        <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/menu/menu_assessmentdetails.xml" value="0.253125" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/menu/menu_coursedetails.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/menu/menu_termdetails.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/papio/StudioProjects/C196_School_Planner/app/src/main/res/menu/menu_termlist.xml" value="0.5541666666666667" />

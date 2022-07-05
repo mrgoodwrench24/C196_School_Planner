@@ -51,11 +51,11 @@ public class CourseDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         repository = new Repository(getApplication());
-        courseName = findViewById(R.id.textViewCDName);
-        startDate = findViewById(R.id.textViewCDStartDate);
-        endDate = findViewById(R.id.texViewCDEndDate);
-        status = findViewById(R.id.textViewCDStatus);
-        ciName = findViewById(R.id.editTextCDInstructorName);
+        courseName = findViewById(R.id.textViewAUTitle);
+        startDate = findViewById(R.id.textViewADStartDate);
+        endDate = findViewById(R.id.editTextAUEnd);
+        status = findViewById(R.id.spinnerAUType);
+        ciName = findViewById(R.id.spinnerAUStatus);
         ciPhone = findViewById(R.id.editTextCDInstructorPhone);
         ciEmail = findViewById(R.id.editTextCDInstructorEmail);
         saveNote = findViewById(R.id.editTextNote);

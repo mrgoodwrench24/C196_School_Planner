@@ -61,7 +61,7 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
         startDate = findViewById(R.id.editTextCourseStart);
         endDate = findViewById(R.id.editTextCourseEnd);
         Spinner spinner = findViewById(R.id.spinnerCourseStatus);
-        ciName = findViewById(R.id.editTextCDInstructorName);
+        ciName = findViewById(R.id.spinnerAUStatus);
         ciPhone = findViewById(R.id.editTextCDInstructorPhone);
         ciEmail = findViewById(R.id.editTextCDInstructorEmail);
         cUpdatetitle = findViewById(R.id.textViewCourseUpdate);

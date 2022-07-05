@@ -41,7 +41,7 @@ public class TermDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term_details);
         repository = new Repository(getApplication());
-        title = findViewById(R.id.textViewCDName);
+        title = findViewById(R.id.textViewAUTitle);
         termName = findViewById(R.id.detailTermName);
         termStart = findViewById(R.id.detailStartDate);
         termEnd = findViewById(R.id.detailEndDate);

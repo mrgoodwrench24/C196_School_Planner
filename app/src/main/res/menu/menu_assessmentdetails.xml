@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/assessmentsMenuEdit"
+        android:title="Edit Assessment" />
+    <item
+        android:id="@+id/assessmentsMenuDelete"
+        android:title="Delete Assessment" />
+</menu>

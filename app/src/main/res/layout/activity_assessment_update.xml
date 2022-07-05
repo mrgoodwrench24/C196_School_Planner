@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
     android:textColor="@color/white"
-    tools:context=".UI.CourseUpdate">
+    tools:context=".UI.AssessmentUpdate">
 
     <LinearLayout
         android:id="@+id/linearLayoutAUID"
@@ -20,15 +20,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textViewCourseUpdate"
+            android:id="@+id/textViewAUTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="Assessment ID"
+            android:text="Edit Assessment"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="#A1887F"
-            android:textSize="24sp"
-            tools:text="Edit Course" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -37,42 +38,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutAUID">
 
+
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp">
 
             <TextView
-                android:layout_width="54sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Course Name:"
+                android:text="Assessment Name:"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editTextCourseName"
+                android:id="@+id/editTextAUName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2sp"
                 android:layout_weight="3"
-                android:textColor="@color/white"
+                android:background="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </TableRow>
-
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="54sp"
@@ -81,26 +84,25 @@
                 android:text="Start Date:"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editTextCourseStart"
+                android:id="@+id/editTextAUStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2sp"
                 android:layout_weight="3"
-                android:ems="10"
-                android:inputType="date"
-                android:textColor="@color/white"
+                android:background="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="46sp"
@@ -109,26 +111,48 @@
                 android:text="End Date:"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editTextCourseEnd"
+                android:id="@+id/editTextAUEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2sp"
                 android:layout_weight="3"
-                android:ems="10"
-                android:inputType="date"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="46sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Assessment Type:"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerAUType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2sp"
+                android:layout_weight="3"
+                android:background="@color/white" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="46sp"
@@ -137,97 +161,15 @@
                 android:text="Status:"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/spinnerCourseStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:text="Instructor Name:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
                 android:id="@+id/spinnerAUStatus"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:text="Instructor Phone:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/editTextCDInstructorPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="49dp"
-                android:text="Instructor Email:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/editTextCDInstructorEmail"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2sp"
                 android:layout_weight="3"
-                android:minHeight="49dp"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4"
-                android:textSize="14sp" />
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -263,7 +205,7 @@
         android:layout_marginEnd="16dp"
         android:minWidth="30dp"
         android:minHeight="48dp"
-        android:onClick="clickSaveCourse"
+        android:onClick="onClickSaveAssessment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
         app:srcCompat="@drawable/ic_baseline_save_24" />
@@ -280,5 +222,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
         app:srcCompat="@drawable/ic_baseline_cancel_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

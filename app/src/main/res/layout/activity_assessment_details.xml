@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
-    android:textColor="@color/black"
-    android:onClick="onActionSaveNote"
-    android:visibility="visible"
-    tools:context=".UI.CourseDetails">
+    android:textColor="@color/white"
+    tools:context=".UI.AssessmentDetails">
 
     <LinearLayout
         android:id="@+id/linearLayoutAUID"
@@ -26,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Course Name"
+            android:hint="Assessment Name"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="#A1887F"
@@ -49,7 +47,7 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="54sp"
@@ -76,7 +74,7 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="46sp"
@@ -102,13 +100,13 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="46sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Status:"
+                android:text="Assessment Type:"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -128,13 +126,13 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="46sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Instructor Name:"
+                android:text="Status:"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -151,119 +149,7 @@
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Instructor Phone:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/editTextCDInstructorPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="End Date:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/editTextCDInstructorEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </TableRow>
-
     </TableLayout>
 
-    <TextView
-        android:id="@+id/textViewNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Notes"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-    <EditText
-        android:id="@+id/editTextNote"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNote" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:baselineAligned="true"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Save Note"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-
-        <ImageView
-            android:id="@+id/saveNoteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:minWidth="30dp"
-            android:minHeight="48dp"
-            android:onClick="onActionSaveNote"
-            app:srcCompat="@drawable/ic_baseline_save_24"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,13 @@
         <item>Dropped</item>
         <item>Plan to Take</item>
     </string-array>
+    <string-array name="assessment_type">
+        <item>Objective</item>
+        <item>Performance</item>
+    </string-array>
+    <string-array name="assessment_status">
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Not Passed</item>
+    </string-array>
 </resources>
