@@ -72,7 +72,7 @@ public class AssessmentDetails extends AppCompatActivity {
             case R.id.assessmentsMenuEdit:
                 Intent edit = new Intent(this, AssessmentUpdate.class);
                 if (!assessmentName.isEmpty()) {
-                    edit.putExtra("id", assessmentID);
+                    edit.putExtra("id", workingAssessment.getAssessmentID());
                 }
                 startActivity(edit);
             case R.id.assessmentsMenuDelete:

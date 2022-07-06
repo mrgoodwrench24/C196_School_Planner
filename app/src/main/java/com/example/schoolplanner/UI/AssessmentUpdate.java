@@ -51,6 +51,7 @@ public class AssessmentUpdate extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         repository = new Repository(getApplication());
         assessmentID = getIntent().getIntExtra("id", -1);
+
         textViewTitle = findViewById(R.id.textViewAUTitle);
         editName = findViewById(R.id.editTextAUName);
         editStart = findViewById(R.id.editTextAUStart);
@@ -94,6 +95,7 @@ public class AssessmentUpdate extends AppCompatActivity {
         else {
             workingAssessment = findAssessment(assessmentID);
             assessmentName = workingAssessment.getAssessmentTitle();
+            courseID = workingAssessment.getCourseID();
             editName.setText(assessmentName);
             startDate = workingAssessment.getStartDate();
             editStart.setText(startDate);
@@ -203,16 +205,23 @@ public class AssessmentUpdate extends AppCompatActivity {
     public void onClickSaveAssessment(View view) {
         Assessment updateAssessment;
         if(assessmentID == -1){
-            int newID = repository.getAllAssessments().get(repository.getAllAssessments().size()-1).getAssessmentID() + 1;
-            updateAssessment = new Assessment(newID, editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, 99);
+            int newID;
+            if(repository.getAllAssessments().size() == 0){
+                newID = 1;
+            }
+            else{
+                newID = repository.getAllAssessments().get(repository.getAllAssessments().size()-1).getAssessmentID() + 1;
+            }
+            courseID = getIntent().getIntExtra("courseID", -1);
+            updateAssessment = new Assessment(newID, editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, courseID);
             repository.insert(updateAssessment);
             Intent intent = new Intent(this, AssessmentList.class);
-            intent.putExtra("courseID", courseID);
+            intent.putExtra("id", assessmentID);
             repository = new Repository(getApplication());
             startActivity(intent);
         }
         else{
-            updateAssessment = new Assessment(assessmentID,editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, workingAssessment.getCourseID());
+            updateAssessment = new Assessment(assessmentID,editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, courseID);
             repository.update(updateAssessment);
             Intent intent = new Intent(this, AssessmentList.class);
             intent.putExtra("courseID", updateAssessment.getCourseID());
