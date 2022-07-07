@@ -143,7 +143,8 @@ public class TermUpdate extends AppCompatActivity {
             int newID = repository.getmAllTerms().get(repository.getmAllTerms().size()-1).getTermID() + 1;
             updateTerm = new Term(newID, termName.getText().toString(),termStart.getText().toString(),termEnd.getText().toString());
             repository.insert(updateTerm);
-            Intent intent = new Intent(this, TermsList.class);
+            Intent intent = new Intent(this, TermDetails.class);
+            intent.putExtra("id", newID);
             startActivity(intent);
         }
         else{

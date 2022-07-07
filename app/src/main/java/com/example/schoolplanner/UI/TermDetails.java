@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.schoolplanner.Database.Repository;
 import com.example.schoolplanner.Entity.Course;
@@ -102,10 +104,27 @@ public class TermDetails extends AppCompatActivity {
                 this.finish();
                 return true;
             case R.id.deleteTerm:
-                repository.delete(workingTerm);
-                Intent delete = new Intent(this, TermsList.class);
-                startActivity(delete);
-                return true;
+                List<Course> allCourses = repository.getmAllCourses();
+                Context context = getApplicationContext();
+                Boolean ready = true;
+                for(Course course : allCourses){
+                    if(course.getTermID() == termID){
+                        Toast toast = Toast.makeText(context, "Delete All Courses Before Deleting Term", Toast.LENGTH_LONG);
+                        toast.show();
+                        ready = false;
+                    }
+                }
+                if(ready == true){
+                    repository.delete(workingTerm);
+                    Intent delete = new Intent(this, TermsList.class);
+                    startActivity(delete);
+                    return true;
+                }
+                else{
+                    return false;
+                }
+
+
             case R.id.editTerm:
                 Intent intent=new Intent(this, TermUpdate.class);
                 if (!name.isEmpty() && !start.isEmpty() && !end.isEmpty()) {
@@ -139,5 +158,10 @@ public class TermDetails extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    public void onClickBack(View view) {
+        Intent back = new Intent(this, TermsList.class);
+        startActivity(back);
     }
 }
