@@ -53,8 +53,8 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_update);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         repository = new Repository(getApplication());
         courseID = getIntent().getIntExtra("id", -1);
         courseName = findViewById(R.id.editTextCourseName);
@@ -97,7 +97,7 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
             setSpinner(spinner, cStatus);
             cMentorName = course.getMentorName();
             ciName.setText(cMentorName);
-            cMentorPhone = course.getMentorEmail();
+            cMentorPhone = course.getMentorPhone();
             ciPhone.setText(cMentorPhone);
             cMentorEmail = course.getMentorEmail();
             ciEmail.setText(cMentorEmail);

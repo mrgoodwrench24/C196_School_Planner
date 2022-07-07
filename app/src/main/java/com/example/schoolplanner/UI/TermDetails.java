@@ -105,12 +105,14 @@ public class TermDetails extends AppCompatActivity {
                 repository.delete(workingTerm);
                 Intent delete = new Intent(this, TermsList.class);
                 startActivity(delete);
+                return true;
             case R.id.editTerm:
                 Intent intent=new Intent(this, TermUpdate.class);
                 if (!name.isEmpty() && !start.isEmpty() && !end.isEmpty()) {
                     intent.putExtra("id",termID);
                 }
                 startActivity(intent);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

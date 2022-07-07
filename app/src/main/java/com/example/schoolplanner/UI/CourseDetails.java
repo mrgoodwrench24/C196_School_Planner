@@ -47,8 +47,8 @@ public class CourseDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         repository = new Repository(getApplication());
         courseName = findViewById(R.id.textViewAUTitle);
@@ -96,16 +96,19 @@ public class CourseDetails extends AppCompatActivity {
                 Intent intent = new Intent(this, TermDetails.class);
                 intent.putExtra("termID", termID);
                 startActivity(intent);
+                return true;
             case R.id.editCourse:
                 Intent edit = new Intent(this, CourseUpdate.class);
                 if(!name.isEmpty()){
                     edit.putExtra("id", courseID);
                 }
                 startActivity(edit);
+                return true;
             case R.id.assessmentsMenuButton:
                 Intent assessments = new Intent(this, AssessmentList.class);
                 assessments.putExtra("courseID", courseID);
                 startActivity(assessments);
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
@@ -133,5 +136,11 @@ public class CourseDetails extends AppCompatActivity {
         toast.show();
 
 
+    }
+
+    public void onClickBack(View view) {
+        Intent back = new Intent(this, TermDetails.class);
+        back.putExtra("id", workingCourse.getTermID());
+        startActivity(back);
     }
 }

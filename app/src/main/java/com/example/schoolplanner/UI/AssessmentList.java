@@ -26,8 +26,8 @@ public class AssessmentList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment_list);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         courseID = getIntent().getIntExtra("courseID", -1);
         repository = new Repository(getApplication());
         RecyclerView recyclerView = findViewById(R.id.recyclerViewAssessments);
@@ -60,5 +60,11 @@ public class AssessmentList extends AppCompatActivity {
             e.printStackTrace();
         }
         return allAssessments;
+    }
+
+    public void onClickBack(View view) {
+        Intent back = new Intent(this, CourseDetails.class);
+        back.putExtra("id", courseID);
+        startActivity(back);
     }
 }

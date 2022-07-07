@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import com.example.schoolplanner.Database.Repository;
 import com.example.schoolplanner.Entity.Assessment;
@@ -25,7 +26,8 @@ public class AssessmentDetails extends AppCompatActivity {
     private String type;
     private String status;
     private int assessmentID;
-    Assessment workingAssessment;
+    private int courseID;
+    private Assessment workingAssessment;
     private Repository repository;
 
 
@@ -33,8 +35,8 @@ public class AssessmentDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment_details);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
 
         repository = new Repository(getApplication());
@@ -45,6 +47,7 @@ public class AssessmentDetails extends AppCompatActivity {
         textStatus = findViewById(R.id.spinnerAUStatus);
         assessmentID = getIntent().getIntExtra("id", -1);
         workingAssessment = findAssessment(assessmentID);
+        courseID = workingAssessment.getCourseID();
         assessmentName = workingAssessment.getAssessmentTitle();
         startDate = workingAssessment.getStartDate();
         endDate = workingAssessment.getEndDate();
@@ -71,16 +74,16 @@ public class AssessmentDetails extends AppCompatActivity {
                 return true;
             case R.id.assessmentsMenuEdit:
                 Intent edit = new Intent(this, AssessmentUpdate.class);
-                if (!assessmentName.isEmpty()) {
                     edit.putExtra("id", workingAssessment.getAssessmentID());
-                }
                 startActivity(edit);
+                return true;
             case R.id.assessmentsMenuDelete:
                 int courseID = workingAssessment.getCourseID();
                 repository.delete(workingAssessment);
                 Intent delete = new Intent(this, CourseDetails.class);
                 delete.putExtra("courseID", courseID);
                 startActivity(delete);
+                return true;
         }
         return super.onOptionsItemSelected(item);
 
@@ -97,5 +100,11 @@ public class AssessmentDetails extends AppCompatActivity {
 
         }
         return null;
+    }
+
+    public void onClickBack(View view) {
+        Intent back = new Intent(this, AssessmentList.class);
+        back.putExtra("courseID", courseID);
+        startActivity(back);
     }
 }

@@ -215,7 +215,7 @@ public class AssessmentUpdate extends AppCompatActivity {
             courseID = getIntent().getIntExtra("courseID", -1);
             updateAssessment = new Assessment(newID, editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, courseID);
             repository.insert(updateAssessment);
-            Intent intent = new Intent(this, AssessmentList.class);
+            Intent intent = new Intent(this, AssessmentDetails.class);
             intent.putExtra("id", assessmentID);
             repository = new Repository(getApplication());
             startActivity(intent);
@@ -223,7 +223,7 @@ public class AssessmentUpdate extends AppCompatActivity {
         else{
             updateAssessment = new Assessment(assessmentID,editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, courseID);
             repository.update(updateAssessment);
-            Intent intent = new Intent(this, AssessmentList.class);
+            Intent intent = new Intent(this, AssessmentDetails.class);
             intent.putExtra("courseID", updateAssessment.getCourseID());
             repository = new Repository(getApplication());
             startActivity(intent);
