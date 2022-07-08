@@ -8,222 +8,235 @@
     android:textColor="@color/white"
     tools:context=".UI.AssessmentUpdate">
 
-    <LinearLayout
-        android:id="@+id/linearLayoutAUID"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:textAlignment="center"
-        app:flow_horizontalAlign="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAUID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:textAlignment="center"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewAUTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Assessment ID"
+                android:text="Edit Assessment"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHint="#A1887F"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutAUID">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Assessment Name:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextAUName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2sp"
+                    android:layout_weight="3"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:textColorHint="#BCAAA4"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="54sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Start Date:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextAUStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2sp"
+                    android:layout_weight="3"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:textColorHint="#BCAAA4"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="46sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="End Date:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextAUEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2sp"
+                    android:layout_weight="3"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="46sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Assessment Type:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerAUType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2sp"
+                    android:layout_weight="3"
+                    android:textColor="@color/white"
+                    android:textColorHint="#BCAAA4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="46sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Status:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerAUStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2sp"
+                    android:layout_weight="3"
+                    android:textColor="@color/white"
+                    android:textColorHint="#BCAAA4" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:minWidth="30dp"
+            android:minHeight="48dp"
+            android:onClick="onClickSaveAssessment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+            app:srcCompat="@drawable/ic_baseline_save_24" />
+
+        <ImageView
+            android:id="@+id/imageViewcancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:minWidth="30dp"
+            android:minHeight="48dp"
+            android:onClick="clickCancelChanges"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+            app:srcCompat="@drawable/ic_baseline_cancel_24" />
 
         <TextView
-            android:id="@+id/textViewAUTitle"
-            android:layout_width="0dp"
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Assessment ID"
-            android:text="Edit Assessment"
-            android:textAlignment="center"
+            android:layout_marginEnd="8dp"
+            android:text="Save"
             android:textColor="@color/white"
-            android:textColorHint="#A1887F"
-            android:textSize="24sp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
-    </LinearLayout>
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutAUID">
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Assessment Name:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/editTextAUName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textColorHint="#BCAAA4"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginStart="8dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewcancel"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
-            <TextView
-                android:layout_width="54sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Start Date:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/editTextAUStart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textColorHint="#BCAAA4"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="End Date:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/editTextAUEnd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:background="@color/white"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Assessment Type:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/spinnerAUType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="46sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Status:"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/spinnerAUStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2sp"
-                android:layout_weight="3"
-                android:textColor="@color/white"
-                android:textColorHint="#BCAAA4"/>
-
-        </TableRow>
-
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="8dp"
-        android:text="Save"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="38dp"
-        android:text="Cancel"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/imageViewcancel"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:minWidth="30dp"
-        android:minHeight="48dp"
-        android:onClick="onClickSaveAssessment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:srcCompat="@drawable/ic_baseline_save_24" />
-
-    <ImageView
-        android:id="@+id/imageViewcancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:minWidth="30dp"
-        android:minHeight="48dp"
-        android:onClick="clickCancelChanges"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:srcCompat="@drawable/ic_baseline_cancel_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
