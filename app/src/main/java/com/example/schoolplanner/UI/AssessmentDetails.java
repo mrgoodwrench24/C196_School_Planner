@@ -37,8 +37,6 @@ public class AssessmentDetails extends AppCompatActivity {
         setContentView(R.layout.activity_assessment_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-
         repository = new Repository(getApplication());
         textAssessmentName = findViewById(R.id.textViewAUTitle);
         textStartDate = findViewById(R.id.textViewADStartDate);
