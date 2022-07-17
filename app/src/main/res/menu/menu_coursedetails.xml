@@ -8,6 +8,10 @@
         android:id="@+id/editCourse"
         android:title="Edit Course" />
     <item
+        android:id="@+id/shareNote"
+        android:title="Share Notes"
+        />
+    <item
 
         android:id="@+id/deleteCourse"
         android:actionLayout="@layout/activity_course_details"

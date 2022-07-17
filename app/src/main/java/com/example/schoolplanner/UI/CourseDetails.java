@@ -109,6 +109,15 @@ public class CourseDetails extends AppCompatActivity {
                 assessments.putExtra("courseID", courseID);
                 startActivity(assessments);
                 return true;
+            case R.id.shareNote:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, saveNote.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, "Share Note");
+                sendIntent.setType("text/plain");
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
