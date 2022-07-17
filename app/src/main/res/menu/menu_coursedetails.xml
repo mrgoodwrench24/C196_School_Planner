@@ -10,9 +10,14 @@
     <item
         android:id="@+id/shareNote"
         android:title="Share Notes"
-        />
+        ></item>
     <item
-
+        android:id="@+id/notifcationStart"
+        android:title="Start Notification" />
+    <item
+        android:id="@+id/notifcationEnd"
+        android:title="End Notification" />
+    <item
         android:id="@+id/deleteCourse"
         android:actionLayout="@layout/activity_course_details"
         android:orderInCategory="100"

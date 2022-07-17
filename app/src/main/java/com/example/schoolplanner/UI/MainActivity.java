@@ -14,6 +14,8 @@ import com.example.schoolplanner.R;
 public class MainActivity extends AppCompatActivity {
 
 
+    public static int numAlert;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

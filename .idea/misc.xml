@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/papio/AndroidStudioProjects/C196_School_Planner/app/src/main/res/menu/menu_assessmentdetails.xml" value="0.446875" />
         <entry key="..\:/Users/papio/AndroidStudioProjects/C196_School_Planner/app/src/main/res/menu/menu_coursedetails.xml" value="0.446875" />
+        <entry key="..\:/Users/papio/AndroidStudioProjects/C196_School_Planner/app/src/main/res/menu/menu_courseupdate.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/papio/AndroidStudioProjects/C196_School_Planner/app/src/main/res/menu/menu_termdetails.xml" value="0.1984375" />
         <entry key="..\:/Users/papio/AndroidStudioProjects/SchoolPlanner/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.369" />
         <entry key="..\:/Users/papio/AndroidStudioProjects/SchoolPlanner/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.369" />
         <entry key="..\:/Users/papio/AndroidStudioProjects/SchoolPlanner/app/src/main/res/drawable/ic_baseline_more_horiz_24.xml" value="0.369" />

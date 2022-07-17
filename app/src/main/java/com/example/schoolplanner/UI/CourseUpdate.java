@@ -166,7 +166,7 @@ public class CourseUpdate extends AppCompatActivity implements AdapterView.OnIte
         String myFormat = "MM/dd/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-        endDate.setText(sdf.format(myCalendarStart.getTime()));
+        endDate.setText(sdf.format(myCalendarEnd.getTime()));
     }
 
     private void updateStartLabel() {

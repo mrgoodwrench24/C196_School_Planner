@@ -2,6 +2,8 @@ package com.example.schoolplanner.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +18,11 @@ import com.example.schoolplanner.Database.Repository;
 import com.example.schoolplanner.Entity.Course;
 import com.example.schoolplanner.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CourseDetails extends AppCompatActivity {
 
@@ -118,6 +124,43 @@ public class CourseDetails extends AppCompatActivity {
                 Intent shareIntent = Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
+            case R.id.notifcationStart:
+                String startDateSelected = startDate.getText().toString();
+                Date notifyStartDate = null;
+                String myFormat = "MM/dd/yy";
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                try{
+                    notifyStartDate=sdf.parse(startDateSelected);
+                } catch(ParseException e) {
+                    e.printStackTrace();
+                }
+                Long startTrigger = notifyStartDate.getTime();
+                Intent notify = new Intent(CourseDetails.this, MyReceiver.class);
+                notify.putExtra("key", workingCourse.getTitle() + " starts today!");
+                PendingIntent sender=PendingIntent.getBroadcast(CourseDetails.this,MainActivity.numAlert++,notify,PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,startTrigger,sender);
+                return true;
+            case R.id.notifcationEnd:
+                String endDateSelected = endDate.getText().toString();
+                Date notifyEndDate = null;
+                String myFormatEnd = "MM/dd/yy";
+                SimpleDateFormat sdfEnd = new SimpleDateFormat(myFormatEnd, Locale.US);
+                try{
+                    notifyEndDate=sdfEnd.parse(endDateSelected);
+                } catch(ParseException e) {
+                    e.printStackTrace();
+                }
+                Long endTrigger = notifyEndDate.getTime();
+                Intent notifyEnd = new Intent(CourseDetails.this, MyReceiver.class);
+                notifyEnd.putExtra("key", workingCourse.getTitle() + " ends today!");
+                PendingIntent senderEnd=PendingIntent.getBroadcast(CourseDetails.this,MainActivity.numAlert++,notifyEnd,PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManagerEnd = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManagerEnd.set(AlarmManager.RTC_WAKEUP,endTrigger,senderEnd);
+                return true;
+
+
+
 
         }
         return super.onOptionsItemSelected(item);

@@ -5,6 +5,12 @@
         android:id="@+id/assessmentsMenuEdit"
         android:title="Edit Assessment" />
     <item
+        android:id="@+id/notifcationStart"
+        android:title="Start Notification" />
+    <item
+        android:id="@+id/notifcationEnd"
+        android:title="End Notification" />
+    <item
         android:id="@+id/assessmentsMenuDelete"
         android:title="Delete Assessment" />
 </menu>
