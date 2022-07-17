@@ -105,6 +105,7 @@ public class AssessmentUpdate extends AppCompatActivity {
             setSpinnerType(typeSpinner, type);
             status = workingAssessment.getResult();
             setSpinnerStatus(statusSpinner, status);
+        }
 
 
             editAssessmentStartDate = new DatePickerDialog.OnDateSetListener() {
@@ -163,8 +164,6 @@ public class AssessmentUpdate extends AppCompatActivity {
 
         }
 
-    }
-
     private void updateEndLabel() {
         String myFormat = "MM/dd/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -216,7 +215,7 @@ public class AssessmentUpdate extends AppCompatActivity {
             updateAssessment = new Assessment(newID, editName.getText().toString(), editStart.getText().toString(), editEnd.getText().toString(), type, status, courseID);
             repository.insert(updateAssessment);
             Intent intent = new Intent(this, AssessmentDetails.class);
-            intent.putExtra("id", assessmentID);
+            intent.putExtra("id", courseID);
             repository = new Repository(getApplication());
             startActivity(intent);
         }

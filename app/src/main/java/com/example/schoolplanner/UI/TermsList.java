@@ -21,8 +21,6 @@ public class TermsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_terms_list);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Repository repo = new Repository(getApplication());
         List<Term> terms = repo.getmAllTerms();
         RecyclerView recyclerView=findViewById(R.id.termRecyclerView);

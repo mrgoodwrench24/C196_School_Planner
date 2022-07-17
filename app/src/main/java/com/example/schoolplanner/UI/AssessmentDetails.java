@@ -85,9 +85,9 @@ public class AssessmentDetails extends AppCompatActivity {
                 return true;
             case R.id.assessmentsMenuDelete:
                 int courseID = workingAssessment.getCourseID();
-                repository.delete(workingAssessment);
-                Intent delete = new Intent(this, CourseDetails.class);
+                Intent delete = new Intent(this, AssessmentList.class);
                 delete.putExtra("courseID", courseID);
+                repository.delete(workingAssessment);
                 startActivity(delete);
                 return true;
             case R.id.notifcationStart:

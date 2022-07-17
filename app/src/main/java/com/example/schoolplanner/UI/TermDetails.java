@@ -57,8 +57,6 @@ public class TermDetails extends AppCompatActivity {
         termStart.setText(start);
         termEnd.setText(end);
         termIDCourse = termID;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         RecyclerView recyclerView=findViewById(R.id.courseRecyclerView);
         termCourses = setTermCourses(termID);
         final CoursesAdapter adapter = new CoursesAdapter(this);
